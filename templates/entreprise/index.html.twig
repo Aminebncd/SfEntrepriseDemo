@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List des entreprises{% endblock %}
+
+{% block body %}
+    <h1> Liste des entreprises</h1>
+
+    {# {{ controller_name }} #}
+    {# Bonjour {{ name }} ! #}
+     {# {% for element in tableau %}
+        <li>{{ element }}</li>
+     {% endfor %}
+
+
+     {% if condition %}
+        
+     {% endif %} #}
+     {% for entreprise in entreprises %}
+        {{entreprise.raisonSociale}}<br>
+     {% endfor %}
+
+
+
+{% endblock %}
