@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}List des entreprises{% endblock %}
+{% block title %}Liste des entreprises{% endblock %}
 
 {% block body %}
     <h1> Liste des entreprises</h1>
@@ -16,7 +16,7 @@
         
      {% endif %} #}
      {% for entreprise in entreprises %}
-        {{ entreprise}} <br>
+        <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise}} </a><br>
      {% endfor %}
 
 
