@@ -3,7 +3,38 @@
 {% block title %}Ajoutez une nouvelle entreprise{% endblock %}
 
 {% block body %}
-    <h1>Ajoutez une nouvelle entreprise</h1>
+    {% if edit %}
+        <h1>Editer une entreprise existante</h1>
+    {% else %}
+        <h1>Ajoutez une nouvelle entreprise</h1>
+    {% endif %}
 
-    {{ form (formAddEntreprise)}}
+    {# {{ form (formAddEntreprise)}} #}
+
+    {{ form_start(formAddEntreprise) }}
+
+    <div class="row mt-3">
+        <div class="col-sm">
+            {{form_row(formAddEntreprise.raisonSociale)}}
+        </div>
+        <div class="col-sm">
+            {{form_row(formAddEntreprise.dateCreation)}}
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-sm">
+            {{form_row(formAddEntreprise.adresse)}}
+        </div>
+        <div class="col-sm">
+            {{form_row(formAddEntreprise.cp)}}
+        </div>
+        <div class="col-sm">
+            {{form_row(formAddEntreprise.ville)}}
+        </div>
+    </div>
+    
+            {{form_row(formAddEntreprise.valider)}}
+
+    {{ form_end(formAddEntreprise) }}
 {% endblock %}

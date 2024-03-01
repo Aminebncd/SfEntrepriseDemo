@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Employe;
+
 use App\Entity\Entreprise;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,6 +29,7 @@ class EmployeType extends AbstractType
                 ]
             ])
             ->add('dateNaissance', DateType::class, [
+                'required' => false,
                 'widget' =>'single_text',
                 'attr' => [
                     'class' => 'form-control'
@@ -40,6 +42,7 @@ class EmployeType extends AbstractType
                 ]
             ])
             ->add('ville', TextType::class, [
+                'required' => false,
                 'attr' => [
                     'class' => 'form-control'
                 ]
@@ -52,7 +55,7 @@ class EmployeType extends AbstractType
                 'class' => 'form-control'
             ]
             ])
-            ->add('Valider', SubmitType::class, [
+            ->add('valider', SubmitType::class, [
             'attr' => [
                 'class' => 'btn btn-primary mt-3'
                 ]

@@ -16,7 +16,13 @@
         
      {% endif %} #}
      {% for entreprise in entreprises %}
-        <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise}} </a><br>
+        <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise}}</a>
+
+        <a class="btn btn-warning btn-sm" href="{{ path('edit_entreprise', {'id' : entreprise.id}) }}">edit</a>
+
+        <a class="btn btn-danger btn-sm" href="{{ path('delete_entreprise', {'id' : entreprise.id}) }}">delete</a>
+        
+        <br>
      {% endfor %}
 
 
