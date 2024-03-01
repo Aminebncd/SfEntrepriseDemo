@@ -4,8 +4,10 @@
 
 {% block body %}
 <h1>Liste des employes</h1>
+
+{% if employes %}
      {% for employe in employes %}
-          <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe}} </a>
+          <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe}}</a>
           
           <a class="btn btn-warning btn-sm" href="{{ path('edit_employe', {'id' : employe.id}) }}">edit</a>
 
@@ -13,6 +15,11 @@
 
           <br>
      {% endfor %}
+     
+{% else %}
+     <p>Il semblerait qu'aucun salarié ne soit renseignée en base de données.</p>
+{% endif %}
+
 {% endblock %}
 
 

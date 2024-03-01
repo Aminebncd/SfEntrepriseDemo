@@ -54,23 +54,29 @@ class EntrepriseController extends AbstractController
     }
 
     #[Route('/entreprise/{id}/delete', name: 'delete_entreprise')]
-    public function delete(Entreprise $entreprise, EntityManagerInterface $entityManager)
+    public function delete(Entreprise $entreprise = null, EntityManagerInterface $entityManager)
     {
-        $entityManager->remove($entreprise);
-        $entityManager->flush();
+        if($entreprise){
+            $entityManager->remove($entreprise);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_entreprise');
+        } else {
+            return $this->redirectToRoute('app_entreprise');
+        }
         
-        return $this->redirectToRoute('app_entreprise');
     }
     
 
     #[Route('/entreprise/{id}', name: 'show_entreprise')]
-    public function show(Entreprise $entreprise): Response
+    public function show(Entreprise $entreprise = null): Response
     {
-        return $this->render('entreprise/show.html.twig', [
-            'entreprise' => $entreprise   
-        ]);
+        if($entreprise) {
+            return $this->render('entreprise/show.html.twig', [
+                'entreprise' => $entreprise   
+            ]);
+        } else {
+            return $this->redirectToRoute("app_entreprise");
+        }
     }
-
-
 
 }
